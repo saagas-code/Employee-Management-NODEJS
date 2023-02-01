@@ -2,7 +2,7 @@
 import {Module} from "@nestjs/common"
 import { PrismaService } from './../instances/prisma.service';
 import { IRoleRepository } from "./database/implements/IRoleRepository";
-import { RoleRepositoryPrisma } from "./database/prisma/repositories/EmployeeRepositoryPrisma";
+import { RoleRepositoryPrisma } from "./database/prisma/repositories/RoleRepositoryPrisma";
 
 
 @Module({
