@@ -6,6 +6,8 @@ import { CreateRoleController } from './services/createRole/CreateRoleController
 import { CreateRoleService } from './services/createRole/CreateRoleService';
 import { ListRoleController } from './services/listRole/ListRoleController';
 import { ListRoleService } from './services/listRole/ListRoleService';
+import { ListPermissionController } from './services/listPermission/ListPermissionController';
+import { ListPermissionService } from './services/listPermission/ListPermissionService';
 
 
 @Module({
@@ -16,10 +18,12 @@ import { ListRoleService } from './services/listRole/ListRoleService';
   controllers: [
     CreateRoleController,
     ListRoleController,
+    ListPermissionController
   ],
   providers: [
     CreateRoleService,
-    ListRoleService
+    ListRoleService,
+    ListPermissionService
   ],
   exports: [
     // JwtStrategy, PassportModule

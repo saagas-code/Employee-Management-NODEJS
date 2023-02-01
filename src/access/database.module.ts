@@ -20,6 +20,6 @@ import { PermissionRepositoryPrisma } from './database/prisma/repositories/Permi
     },
   ],
 
-  exports: [IRoleRepository]
+  exports: [IRoleRepository, IPermissionRepository]
 })
 export class RoleDatabaseModule {}
