@@ -8,6 +8,8 @@ import { ListRoleController } from './services/listRole/ListRoleController';
 import { ListRoleService } from './services/listRole/ListRoleService';
 import { ListPermissionController } from './services/listPermission/ListPermissionController';
 import { ListPermissionService } from './services/listPermission/ListPermissionService';
+import { CreatePermissionController } from './services/createPermission/CreatePermissionController';
+import { CreatePermissionService } from './services/createPermission/CreatePermissionService';
 
 
 @Module({
@@ -18,11 +20,13 @@ import { ListPermissionService } from './services/listPermission/ListPermissionS
   controllers: [
     CreateRoleController,
     ListRoleController,
+    CreatePermissionController,
     ListPermissionController
   ],
   providers: [
     CreateRoleService,
     ListRoleService,
+    CreatePermissionService,
     ListPermissionService
   ],
   exports: [
