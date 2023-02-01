@@ -18,6 +18,8 @@ model Employee {
   email               String                @unique
   password            String
   gender              String
+  updated_at          DateTime?
+  created_at          DateTime
   Employee_Permission Employee_Permission[]
   Employee_Roles      Employee_Roles[]
 

@@ -10,6 +10,7 @@ export class Employee {
   password: string
   gender: string
   created_at?: Date
+  updated_at?: Date | null
   roles?: Role[]
   permissions?: Permission[]
   

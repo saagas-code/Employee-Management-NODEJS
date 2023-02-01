@@ -2,14 +2,14 @@ import { Controller, Get } from "@nestjs/common"
 import { ListEmployeeService } from "./ListEmployeeService"
 
 
-@Controller("/")
+@Controller("/employees")
 export class ListEmployeeController {
   constructor(
     private listEmployeeUseCase: ListEmployeeService,
   ) {}
   
   @Get("/")
-  async create() {
+  async handle() {
     const employee = await this.listEmployeeUseCase.execute()
 
     return employee
