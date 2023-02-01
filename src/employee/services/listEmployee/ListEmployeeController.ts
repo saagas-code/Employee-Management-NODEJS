@@ -1,11 +1,11 @@
 import { Controller, Get } from "@nestjs/common"
-import { ListEmployeeUseCase } from "./ListEmployeeUseCase"
+import { ListEmployeeService } from "./ListEmployeeService"
 
 
 @Controller("/")
 export class ListEmployeeController {
   constructor(
-    private listEmployeeUseCase: ListEmployeeUseCase,
+    private listEmployeeUseCase: ListEmployeeService,
   ) {}
   
   @Get("/")

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { EmployeeDatabaseModule } from './database.module';
-import { ListEmployeeController } from './useCases/listEmployee/ListEmployeeController';
-import { ListEmployeeUseCase } from './useCases/listEmployee/ListEmployeeUseCase';
+import { ListEmployeeController } from './services/listEmployee/ListEmployeeController';
+import { ListEmployeeService } from './services/listEmployee/ListEmployeeService';
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { ListEmployeeUseCase } from './useCases/listEmployee/ListEmployeeUseCase
     ListEmployeeController, 
   ],
   providers: [
-    ListEmployeeUseCase,
+    ListEmployeeService,
   ],
   exports: [
     // JwtStrategy, PassportModule

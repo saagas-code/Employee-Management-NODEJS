@@ -1,6 +1,7 @@
+import { Permission } from '@access/entities/Permission';
+import { Role } from '@access/entities/Role';
 import { randomUUID } from 'crypto';
-import { Role } from './Role';
-import { Permission } from './Permission';
+
 
 export class Employee {
   id?: string;

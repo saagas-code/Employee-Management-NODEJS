@@ -1,10 +1,10 @@
 
+import { IEmployeeRepository } from '@employee/database/implements/IEmployeeRepository';
 import { Injectable } from '@nestjs/common';
-import { IEmployeeRepository } from 'src/employee/database/implements/IEmployeeRepository';
 
 
 @Injectable()
-export class ListEmployeeUseCase {
+export class CreateRoleService {
   constructor(
     private employeeRepository: IEmployeeRepository
   ) {}
