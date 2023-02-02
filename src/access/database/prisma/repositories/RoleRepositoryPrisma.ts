@@ -26,7 +26,7 @@ export class RoleRepositoryPrisma implements IRoleRepository {
   async list(): Promise<Role[]> {
     const role = await this.prisma.role.findMany({
       include: {
-        Permission_Role: {
+        permission_role: {
           include: {
             permission: {
               select: {

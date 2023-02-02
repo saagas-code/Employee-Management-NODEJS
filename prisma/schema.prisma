@@ -13,15 +13,15 @@ datasource db {
 // Account -------------------------------
 
 model Employee {
-  id                  String                @id
-  name                String
-  email               String                @unique
-  password            String
-  gender              String
-  updated_at          DateTime?
-  created_at          DateTime
-  Employee_Permission Employee_Permission[]
-  Employee_Roles      Employee_Roles[]
+  id         String    @id
+  name       String
+  email      String    @unique
+  password   String
+  gender     String
+  updated_at DateTime?
+  created_at DateTime
+  role_id    String?
+  role       Role?     @relation(fields: [role_id], references: [id])
 
   @@map("employees")
 }
@@ -31,8 +31,8 @@ model Role {
   name            String            @unique
   description     String
   created_at      DateTime
-  Permission_Role Permission_Role[]
-  Employee_Roles  Employee_Roles[]
+  permission_role Permission_Role[]
+  employee        Employee[]
 
   @@map("roles")
 }
@@ -43,7 +43,7 @@ model Permission {
   description         String
   created_at          DateTime
   Employee_Permission Employee_Permission[]
-  Permission_Role     Permission_Role[]
+  permission_role     Permission_Role[]
 
   @@map("permissions")
 }
@@ -51,21 +51,10 @@ model Permission {
 model Employee_Permission {
   id            String     @id
   employee_id   String
-  employee      Employee   @relation(fields: [employee_id], references: [id], onDelete: Cascade)
   permission_id String
   permission    Permission @relation(fields: [permission_id], references: [id], onDelete: Cascade)
 
   @@map("employees_permissions")
-}
-
-model Employee_Roles {
-  id          String   @id
-  employee_id String
-  employee    Employee @relation(fields: [employee_id], references: [id], onDelete: Cascade)
-  role_id     String
-  role        Role     @relation(fields: [role_id], references: [id], onDelete: Cascade)
-
-  @@map("employees_roles")
 }
 
 model Permission_Role {

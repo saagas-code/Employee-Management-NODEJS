@@ -14,9 +14,6 @@ export class CreateEmployeeDTO {
 
   @IsString()
   password: string;
-  
-  @IsString()
-  description: string;
 
   @IsString()
   @IsEnum(GenderEnum)
