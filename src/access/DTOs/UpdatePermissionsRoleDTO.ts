@@ -4,5 +4,5 @@ export class UpdatePermissionsRoleDTO {
    
   @IsArray()
   @IsNotEmpty()
-  permission_id: string[]
+  permissions_id: string[]
 }

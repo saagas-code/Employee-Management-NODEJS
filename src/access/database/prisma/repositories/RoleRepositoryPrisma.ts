@@ -65,5 +65,18 @@ export class RoleRepositoryPrisma implements IRoleRepository {
     })
     return
   }
+
+  async deletePermissionsToRoleThatNotIn(permissions_id: string[]): Promise<null> {
+    await this.prisma.permission_Role.deleteMany({
+      where: {
+        NOT: {
+          id: {
+            in: permissions_id
+          }
+        }
+      }
+    })
+    return
+  }
   
 }

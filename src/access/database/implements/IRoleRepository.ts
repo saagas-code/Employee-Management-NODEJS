@@ -11,4 +11,5 @@ export abstract class IRoleRepository {
   abstract findByName(txt: string): Promise<Role>
   abstract findById(id: string): Promise<Role>
   abstract updatePermissionsToRole(data: PermissionsRole[]): Promise<null>
+  abstract deletePermissionsToRoleThatNotIn(permissions_id: string[]): Promise<null>
 }
