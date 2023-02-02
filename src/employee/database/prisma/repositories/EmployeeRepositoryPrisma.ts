@@ -24,8 +24,15 @@ export class EmployeeRepositoryPrisma implements IEmployeeRepository {
   async list(): Promise<Employee[]> {
     const employee = this.prisma.employee.findMany({
       include: {
-        Employee_Permission: true,
-        Employee_Roles: true
+        Employee_Roles: {
+          include: {
+            role: {
+              include: {
+                Permission_Role: true
+              }
+            }
+          }
+        },
       }
     })
     return employee

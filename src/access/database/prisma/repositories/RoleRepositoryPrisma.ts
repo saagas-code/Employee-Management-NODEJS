@@ -24,16 +24,25 @@ export class RoleRepositoryPrisma implements IRoleRepository {
   }
 
   async list(): Promise<Role[]> {
-    const role = this.prisma.role.findMany({
+    const role = await this.prisma.role.findMany({
       include: {
-        Permission_Role: true
+        Permission_Role: {
+          include: {
+            permission: {
+              select: {
+                id: true,
+                name: true
+              }
+            }
+          }
+        }
       }
     })
     return role
   }
 
   async findByName(name: string): Promise<Role> {
-    const role = this.prisma.role.findUnique({
+    const role = await this.prisma.role.findUnique({
       where: {
         name
       }
@@ -42,7 +51,7 @@ export class RoleRepositoryPrisma implements IRoleRepository {
   }
 
   async findById(id: string): Promise<Role> {
-    const role = this.prisma.role.findUnique({
+    const role = await this.prisma.role.findUnique({
       where: {
         id
       }
@@ -51,10 +60,10 @@ export class RoleRepositoryPrisma implements IRoleRepository {
   }
 
   async updatePermissionsToRole(data: PermissionsRole[]): Promise<null> {
-    const updatedRole = this.prisma.permission_Role.createMany({
+    await this.prisma.permission_Role.createMany({
       data: data
     })
-    return updatedRole as any
+    return
   }
   
 }

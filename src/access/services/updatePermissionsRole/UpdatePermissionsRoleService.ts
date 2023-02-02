@@ -7,6 +7,9 @@ import { RoleNotExists } from '@access/errors/RoleNotExists';
 import { Injectable } from '@nestjs/common';
 import { UpdatePermissionsRoleDTO } from './../../DTOs/UpdatePermissionsRoleDTO';
 
+interface params {
+  role_id: string
+}
 
 @Injectable()
 export class UpdatePermissionsRoleService {
@@ -15,7 +18,7 @@ export class UpdatePermissionsRoleService {
     private roleRepository: IRoleRepository
   ) {}
 
-  async execute({permission_id , role_id}: UpdatePermissionsRoleDTO): Promise<null> {
+  async execute({permission_id}: UpdatePermissionsRoleDTO, {role_id}: params): Promise<null> {
     
     const roleExists = await this.roleRepository.findById(role_id)
     if(!roleExists) {
@@ -28,8 +31,8 @@ export class UpdatePermissionsRoleService {
       return PermissionRole
     })
 
-    const updatedPermissionsRole = this.roleRepository.updatePermissionsToRole(newData)
-    return
+    return this.roleRepository.updatePermissionsToRole(newData)
+
   }
 
 }
