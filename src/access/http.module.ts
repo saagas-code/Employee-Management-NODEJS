@@ -10,6 +10,8 @@ import { ListPermissionController } from './services/listPermission/ListPermissi
 import { ListPermissionService } from './services/listPermission/ListPermissionService';
 import { CreatePermissionController } from './services/createPermission/CreatePermissionController';
 import { CreatePermissionService } from './services/createPermission/CreatePermissionService';
+import { UpdatePermissionsRoleController } from './services/updatePermissionsRole/UpdatePermissionsRoleController';
+import { UpdatePermissionsRoleService } from './services/updatePermissionsRole/UpdatePermissionsRoleService';
 
 
 @Module({
@@ -21,13 +23,15 @@ import { CreatePermissionService } from './services/createPermission/CreatePermi
     CreateRoleController,
     ListRoleController,
     CreatePermissionController,
-    ListPermissionController
+    ListPermissionController,
+    UpdatePermissionsRoleController,
   ],
   providers: [
     CreateRoleService,
     ListRoleService,
     CreatePermissionService,
-    ListPermissionService
+    ListPermissionService,
+    UpdatePermissionsRoleService
   ],
   exports: [
     // JwtStrategy, PassportModule

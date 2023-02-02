@@ -1,19 +1,19 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "instances/prisma.service";
-import { IRoleRepository } from "@access/database/implements/IRoleRepository";
 import { RoleMapperPrisma } from "../mappers/RoleMapperPrisma";
 import { Permission } from "@access/entities/Permission";
+import { Role } from "@access/entities/Role";
+import { IPermissionRepository } from '@access/database/implements/IPermissionRepository';
 
 
 
 
 @Injectable()
-export class PermissionRepositoryPrisma implements IRoleRepository {
+export class PermissionRepositoryPrisma implements IPermissionRepository {
   constructor(
     private prisma: PrismaService
   ) {}
-  
-  
+
   async create(role: Permission): Promise<Permission> {
     const raw = RoleMapperPrisma.toPrisma(role)
     const newRole = this.prisma.permission.create({

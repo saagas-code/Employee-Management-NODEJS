@@ -1,4 +1,5 @@
 import { IRoleRepository } from "@access/database/implements/IRoleRepository";
+import { Permission } from "@access/entities/Permission";
 import { Role } from "@access/entities/Role";
 import { Injectable } from "@nestjs/common";
 import { RoleMapperPrisma } from "../mappers/RoleMapperPrisma";
@@ -22,7 +23,11 @@ export class RoleRepositoryPrisma implements IRoleRepository {
   }
 
   async list(): Promise<Role[]> {
-    const role = this.prisma.role.findMany()
+    const role = this.prisma.role.findMany({
+      include: {
+        Permission_Role: true
+      }
+    })
     return role
   }
 
@@ -33,6 +38,29 @@ export class RoleRepositoryPrisma implements IRoleRepository {
       }
     })
     return role
+  }
+
+  async findById(id: string): Promise<Role> {
+    const role = this.prisma.role.findUnique({
+      where: {
+        id
+      }
+    })
+    return role
+  }
+
+  async updatePermissionsToRole(permission_id: string[], role_id: string): Promise<Role> {
+    const data = permission_id.map((permission_id) => {
+      return {
+        permission_id,
+        role_id
+      }
+    })
+    console.log(data)
+    return 'TESTEEE' as any
+    
+    const updatedRole = this.prisma.permission_Role.create
+    return
   }
   
 }
