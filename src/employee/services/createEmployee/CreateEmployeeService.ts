@@ -21,8 +21,6 @@ export class CreateEmployeeService {
 
     const employee = new Employee()
     Object.assign(employee, {name, email, password, gender})
-    console.log('employeee', employee)
-    // return {} as any
     const newRole = this.employeeRepository.create(employee)
     
     return newRole

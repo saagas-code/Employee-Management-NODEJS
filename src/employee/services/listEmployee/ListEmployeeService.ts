@@ -10,7 +10,8 @@ export class ListEmployeeService {
   ) {}
 
   async execute() {
-    return 'Hello Worldd'
+    const employees = this.employeeRepository.list()
+    return employees
   }
 
 }
