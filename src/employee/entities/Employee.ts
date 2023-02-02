@@ -11,8 +11,8 @@ export class Employee {
   gender: string
   created_at?: Date
   updated_at?: Date | null
+  role_id: string
   roles?: Role[]
-  permissions?: Permission[]
   
   constructor() {
     if(!this.id) {

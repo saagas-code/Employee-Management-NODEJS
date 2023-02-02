@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsString  } from "class-validator";
+import { IsEmail, IsEnum, IsNotEmpty, IsString  } from "class-validator";
 
 enum GenderEnum {
   MAN = 'MAN',
@@ -18,4 +18,8 @@ export class CreateEmployeeDTO {
   @IsString()
   @IsEnum(GenderEnum)
   gender: string
+
+  @IsString()
+  @IsNotEmpty()
+  role_id: string
 }
