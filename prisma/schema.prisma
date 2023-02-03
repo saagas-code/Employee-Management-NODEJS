@@ -38,23 +38,13 @@ model Role {
 }
 
 model Permission {
-  id                  String                @id
-  name                String                @unique
-  description         String
-  created_at          DateTime
-  Employee_Permission Employee_Permission[]
-  permission_role     Permission_Role[]
+  id              String            @id
+  name            String            @unique
+  description     String
+  created_at      DateTime
+  permission_role Permission_Role[]
 
   @@map("permissions")
-}
-
-model Employee_Permission {
-  id            String     @id
-  employee_id   String
-  permission_id String
-  permission    Permission @relation(fields: [permission_id], references: [id], onDelete: Cascade)
-
-  @@map("employees_permissions")
 }
 
 model Permission_Role {

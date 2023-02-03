@@ -10,6 +10,8 @@ import { CreateEmployeeController } from './services/createEmployee/CreateEmploy
 import { CreateEmployeeService } from './services/createEmployee/CreateEmployeeService';
 import { AuthEmployeeController } from './services/authEmployee/AuthEmployeeController';
 import { AuthEmployeeService } from './services/authEmployee/AuthEmployeeService';
+import { RequestEmployeeService } from './services/requestEmployee/RequestEmployeeService';
+import { RequestEmployeeController } from './services/requestEmployee/RequestEmployeeController';
 
 
 @Module({
@@ -26,12 +28,14 @@ import { AuthEmployeeService } from './services/authEmployee/AuthEmployeeService
   controllers: [
     ListEmployeeController,
     CreateEmployeeController,
-    AuthEmployeeController
+    AuthEmployeeController,
+    RequestEmployeeController
   ],
   providers: [
     ListEmployeeService,
     CreateEmployeeService,
     AuthEmployeeService,
+    RequestEmployeeService,
     JwtStrategy
   ],
   exports: [

@@ -18,8 +18,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: JwtPayload): Promise<any> {
-    const { id } = payload
-    const employee = await this.employeeRepository.findById(id)
+    const { sub } = payload
+    const employee = await this.employeeRepository.findById(sub)
     if(!employee) {
       throw new EmployeeNotExists()
     }

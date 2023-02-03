@@ -3,14 +3,18 @@ import { Controller, Post, Body } from "@nestjs/common"
 import { AuthEmployeeService } from './AuthEmployeeService';
 import { AuthEmployeeDTO } from './../../DTOs/AuthEmployeeDTO';
 
-@Controller("/login")
+interface IResponse {
+  token: string
+}
+
+@Controller("/auth")
 export class AuthEmployeeController {
   constructor(
     private authEmployeeService: AuthEmployeeService,
   ) {}
   
-  @Post("/")
-  async handle(@Body() body: AuthEmployeeDTO) {
+  @Post("/login")
+  async handle(@Body() body: AuthEmployeeDTO): Promise<IResponse> {
     const permission = await this.authEmployeeService.execute(body)
     return permission
   }
