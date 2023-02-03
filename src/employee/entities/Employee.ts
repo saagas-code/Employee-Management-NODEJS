@@ -12,7 +12,7 @@ export class Employee {
   created_at?: Date
   updated_at?: Date | null
   role_id: string
-  roles?: Role[]
+  role?: Role
   
   constructor() {
     if(!this.id) {

@@ -1,3 +1,4 @@
+import { EmployeeViewModel } from "@employee/viewsModels/ListUserView"
 import { Controller, Get } from "@nestjs/common"
 import { ListEmployeeService } from "./ListEmployeeService"
 
@@ -12,7 +13,9 @@ export class ListEmployeeController {
   async handle() {
     const employee = await this.listEmployeeUseCase.execute()
 
-    return employee
+    const viewEmployees = employee.map(EmployeeViewModel.toHTTP)
+
+    return viewEmployees
   }
 
 }
