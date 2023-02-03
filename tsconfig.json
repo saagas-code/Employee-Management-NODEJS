@@ -18,8 +18,9 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@employee/*": ["employee/*"],
-      "@access/*": ["access/*"],
+      "@employee/*": ["modules/employee/*"],
+      "@access/*": ["modules/access/*"],
+      "@instances/*": ["instances/*"],
     }
   }
 }

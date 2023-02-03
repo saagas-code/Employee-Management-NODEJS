@@ -1,8 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { IEmployeeRepository } from "../../implements/IEmployeeRepository";
-import { PrismaService } from './../../../../instances/prisma.service';
+
 import { Employee } from '@employee/entities/Employee';
 import { EmployeeMapperPrisma } from "../mappers/EmployeeMapperPrisma";
+import { PrismaService } from '@instances/prisma.service';
 
 
 

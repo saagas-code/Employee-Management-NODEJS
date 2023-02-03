@@ -2,8 +2,7 @@ import { IRoleRepository } from "@access/database/implements/IRoleRepository";
 import { Role } from "@access/entities/Role";
 import { Injectable } from "@nestjs/common";
 import { RoleMapperPrisma } from "../mappers/RoleMapperPrisma";
-import { PrismaService } from './../../../../instances/prisma.service';
-import { randomUUID } from 'crypto';
+import { PrismaService } from '@instances/prisma.service';
 import { PermissionsRole } from "@access/entities/PermissionsRole";
 
 
